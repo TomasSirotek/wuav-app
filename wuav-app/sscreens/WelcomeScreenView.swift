@@ -36,7 +36,6 @@ struct WelcomeScreenView: View {
             color: Color("PrimaryColor"),
             fColor: Color.white,
             buttonWidth: 300
-
         )
         Spacer()
         Text("Continue as quest").underline()

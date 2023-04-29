@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  wuav-app
 //
-//  Created by Simko Tomas 
+//  Created by Simko Tomas
 //
 
 import SwiftUI
@@ -17,46 +17,72 @@ struct LoginView: View {
     
     
     var body: some View {
-        ZStack {
-            VStack{
-                ControlButton(image: Image("arrow"))
+        
+        VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    ControlButton(image: Image("arrow"))
+                    
+                    
+                }
                 
-                Text("Welcome back")
+                Spacer()
             }
+            .padding(.top)
             
-            VStack{
-                TextField("Email "
-                          , text: $email).padding()
-                    .frame(width: 300,height: 50)
+            VStack {
+                Text("Welcome back")
+                    .font(.system(size: 40))
+                    .bold()
+            
+            }.frame(width: 300, height: 200)
+            
+            
+            
+            VStack(spacing: 20) {
+                TextField("Email ", text: $email)
+                    .padding()
+                    .frame(width: 300, height: 50)
                     .font(.title2)
                     .padding(.horizontal)
                     .background(Color.black.opacity(0.05))
-                    .shadow(color: Color.black.opacity(0.08),radius: 60,x: 0.0,y:16)
+                    .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
                 
                 SecureField("Password", text: $password)
-                    .frame(width: 300,height: 50)
+                    .frame(width: 300, height: 50)
                     .font(.title2)
                     .padding(.horizontal)
                     .background(Color.black.opacity(0.05))
                     .background(Color.white)
-                    .shadow(color: Color.black.opacity(0.08),radius: 60,x: 0.0,y:16)
-                
+                    .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
                 
                 NavigationLink("Login") {
-                    
                     DashboardView()
-                    
-                    
-                }.font(.title3)
-                    .padding()
-                    .frame(width: 330)
-                    .background(Color("PrimaryColor"))
-                    .cornerRadius(5)
-                    .padding(.horizontal)
-                    .foregroundColor(Color.white)
-                    .shadow(color: Color.black.opacity(0.08),radius: 60,x:0.0,y:16)
+                }
+                .font(.title3)
+                .padding()
+                .frame(width: 330)
+                .background(Color("PrimaryColor"))
+                .cornerRadius(5)
+                .padding(.horizontal)
+                .foregroundColor(Color.white)
+                .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
             }
+            
+            //  Spacer() // Add another Spacer to push VStack to the center
+            
+            Image("wuav-logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 8)
+                .offset(y: UIScreen.main.bounds.height / 4.5)
+            
+            Spacer()
+            
         }
+        .padding(.horizontal)
+        
+        
     }
     
     func authenticateUser() -> Bool{
