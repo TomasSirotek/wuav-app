@@ -1,21 +1,17 @@
 //
 //  ContentView.swift
 //  wuav-app
-//
-//  Created by Legind on 29/04/2023.
-//
 
 import SwiftUI
 
+// Need to fix the black and white mode
 struct ContentView: View {
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            WelcomeScreenView();
         }
-        .padding()
+        
     }
 }
 
@@ -24,3 +20,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
