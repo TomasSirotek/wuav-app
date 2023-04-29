@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Button: View {
+struct CustomButton: View {
     var title: String
     var color: Color?
     var fColor: Color?
@@ -15,8 +15,10 @@ struct Button: View {
     var borderColor: Color?
     var borderWidth: CGFloat?
     var buttonWidth: CGFloat?
+    var action: (() -> Void)?
     
     var body: some View {
+        Button(action: action ?? {}) {
         Text(title)
             .font(.title3)
             .padding()
@@ -30,13 +32,13 @@ struct Button: View {
                     .stroke(borderColor ?? Color.clear, lineWidth: borderWidth ?? 0)
             )
             .shadow(color: Color.black.opacity(0.08),radius: 60,x:0.0,y:16)
-        
+        }
     }
 }
 
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        Button(title: "Sample Button", color: Color.blue, fColor: Color.white)
+        CustomButton(title: "Sample Button", color: Color.blue, fColor: Color.white)
     }
 }

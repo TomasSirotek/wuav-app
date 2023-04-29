@@ -24,14 +24,14 @@ struct WelcomeScreenView: View {
                 .offset(y: UIScreen.main.bounds.height / 4.5)
             Spacer()
         }
-        Button(
+        CustomButton(
             title: "Get Started",
             color: Color.black,
             fColor: Color.white,
             buttonWidth: 300
         ).padding(.vertical)
         
-        Button(
+        CustomButton(
             title: "Login",
             color: Color("PrimaryColor"),
             fColor: Color.white,
