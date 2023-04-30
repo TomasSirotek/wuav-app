@@ -5,15 +5,13 @@
 import SwiftUI
 
 // Need to fix the black and white mode
+// Do not forget to hide the navigation .navigationBarHidden(true)
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             WelcomeScreenView()
-           
-        }.navigationBarHidden(true)
+        }
     }
-    
-  
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -21,7 +19,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 
 
 struct ControlButton: View {
@@ -39,9 +36,9 @@ struct ControlButton: View {
         .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray, lineWidth: 1)
+                .stroke(Color.gray, lineWidth: 0)
         )
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+      //  .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
     }
 }
 

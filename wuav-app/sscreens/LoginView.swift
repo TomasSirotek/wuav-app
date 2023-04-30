@@ -24,18 +24,27 @@ struct LoginView: View {
                     ControlButton(image: Image("arrow"))
                     
                     
-                }
+                }.padding(.leading, 30)
                 
                 Spacer()
             }
             .padding(.top)
             
-            VStack {
-                Text("Welcome back")
-                    .font(.system(size: 40))
-                    .bold()
             
+           
+            
+            VStack {
+                HStack {
+                    Text("Welcome back !")
+                        .font(.system(size: 40))
+                        .bold()
+                    Spacer()
+                }
             }.frame(width: 300, height: 200)
+         
+           
+            
+           
             
             
             
@@ -44,14 +53,14 @@ struct LoginView: View {
                     .padding()
                     .frame(width: 300, height: 50)
                     .font(.title2)
-                    .padding(.horizontal)
+                  
                     .background(Color.black.opacity(0.05))
                     .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
                 
                 SecureField("Password", text: $password)
+                    .padding()
                     .frame(width: 300, height: 50)
                     .font(.title2)
-                    .padding(.horizontal)
                     .background(Color.black.opacity(0.05))
                     .background(Color.white)
                     .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
@@ -61,10 +70,9 @@ struct LoginView: View {
                 }
                 .font(.title3)
                 .padding()
-                .frame(width: 330)
+                .frame(width: 300)
                 .background(Color("PrimaryColor"))
                 .cornerRadius(5)
-                .padding(.horizontal)
                 .foregroundColor(Color.white)
                 .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
             }
