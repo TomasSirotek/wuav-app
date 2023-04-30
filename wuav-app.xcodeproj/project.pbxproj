@@ -15,6 +15,7 @@
 		412F19C329FD8E0C00B9E622 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19C229FD8E0C00B9E622 /* WelcomeScreenView.swift */; };
 		412F19C529FDA3DA00B9E622 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19C429FDA3DA00B9E622 /* DashboardView.swift */; };
 		412F19C729FDA97900B9E622 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19C629FDA97900B9E622 /* LoginView.swift */; };
+		41F2DF7429FE63190008BBA2 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7329FE63190008BBA2 /* UploadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		412F19C229FD8E0C00B9E622 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
 		412F19C429FDA3DA00B9E622 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		412F19C629FDA97900B9E622 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		41F2DF7329FE63190008BBA2 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				412F19C229FD8E0C00B9E622 /* WelcomeScreenView.swift */,
 				412F19C429FDA3DA00B9E622 /* DashboardView.swift */,
 				412F19C629FDA97900B9E622 /* LoginView.swift */,
+				41F2DF7329FE63190008BBA2 /* UploadView.swift */,
 			);
 			path = sscreens;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				412F19B029FD6C0C00B9E622 /* ContentView.swift in Sources */,
 				412F19C329FD8E0C00B9E622 /* WelcomeScreenView.swift in Sources */,
 				412F19C529FDA3DA00B9E622 /* DashboardView.swift in Sources */,
+				41F2DF7429FE63190008BBA2 /* UploadView.swift in Sources */,
 				412F19AE29FD6C0C00B9E622 /* wuav_appApp.swift in Sources */,
 				412F19C029FD8CA800B9E622 /* CustomButton.swift in Sources */,
 			);

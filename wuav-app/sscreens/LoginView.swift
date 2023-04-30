@@ -22,16 +22,11 @@ struct LoginView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     ControlButton(image: Image("arrow"))
-                    
-                    
                 }.padding(.leading, 30)
                 
                 Spacer()
             }
             .padding(.top)
-            
-            
-           
             
             VStack {
                 HStack {
@@ -41,19 +36,14 @@ struct LoginView: View {
                     Spacer()
                 }
             }.frame(width: 300, height: 200)
-         
-           
             
-           
-            
-            
-            
+    
             VStack(spacing: 20) {
                 TextField("Email ", text: $email)
                     .padding()
                     .frame(width: 300, height: 50)
                     .font(.title2)
-                  
+                
                     .background(Color.black.opacity(0.05))
                     .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
                 
@@ -76,8 +66,6 @@ struct LoginView: View {
                 .foregroundColor(Color.white)
                 .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
             }
-            
-            //  Spacer() // Add another Spacer to push VStack to the center
             
             Image("wuav-logo")
                 .resizable()
