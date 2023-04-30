@@ -2,7 +2,7 @@
 //  wuav_appApp.swift
 //  wuav-app
 //
-//  Created by Legind on 29/04/2023.
+//  Created by Simko on 29/04/2023.
 //
 
 import SwiftUI

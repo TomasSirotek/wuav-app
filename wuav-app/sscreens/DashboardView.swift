@@ -9,36 +9,36 @@ import SwiftUI
 
 struct DashboardView: View {
     
-   //  @Binding var path: NavigationPath
+    //  @Binding var path: NavigationPath
     @State private var selectedProjectPath = [Project]()
     
     let project : [Project] = Project.mockData()
     
     // Mock data
     
-//    let individual: CustomerType
- //   let corporate: CustomerType
-//
-//   // Sample customers
-//   let customer1: Customer
-//   let customer2: Customer
-//
-//   // Sample projects
-//   var projects: [Project]
-//
-//   init() {
-//       individual = CustomerType(id: 1, name: "Individual")
-//       corporate = CustomerType(id: 2, name: "Corporate")
-//
-//       customer1 = Customer(id: 1, name: "John Doe", email: "john@example.com", phone: "1234567890", type: individual)
-//       customer2 = Customer(id: 2, name: "Jane Smith", email: "jane@example.com", phone: "0987654321", type: corporate)
-//
-//       projects = [
-//           .init(id: 0, name: "Nørregade 33", description: "First installation", customer: customer1, type: individual, createdAt: Date(), mainImageURL: "https://example.com/image1.jpg", attachedImagesUrl: ["https://example.com/image1a.jpg"], status: .active),
-//           .init(id: 1, name: "Vesterbro", description: "Second installation", customer: customer1, type: individual, createdAt: Date(), mainImageURL: "https://example.com/image2.jpg", attachedImagesUrl: ["https://example.com/image2a.jpg"], status: .completed),
-//           .init(id: 2, name: "Østerbro", description: "Third installation", customer: customer2, type: corporate, createdAt: Date(), mainImageURL: "https://example.com/image3.jpg", attachedImagesUrl: ["https://example.com/image3a.jpg"], status: .completed)
-//       ]
-//   }
+    //    let individual: CustomerType
+    //   let corporate: CustomerType
+    //
+    //   // Sample customers
+    //   let customer1: Customer
+    //   let customer2: Customer
+    //
+    //   // Sample projects
+    //   var projects: [Project]
+    //
+    //   init() {
+    //       individual = CustomerType(id: 1, name: "Individual")
+    //       corporate = CustomerType(id: 2, name: "Corporate")
+    //
+    //       customer1 = Customer(id: 1, name: "John Doe", email: "john@example.com", phone: "1234567890", type: individual)
+    //       customer2 = Customer(id: 2, name: "Jane Smith", email: "jane@example.com", phone: "0987654321", type: corporate)
+    //
+    //       projects = [
+    //           .init(id: 0, name: "Nørregade 33", description: "First installation", customer: customer1, type: individual, createdAt: Date(), mainImageURL: "https://example.com/image1.jpg", attachedImagesUrl: ["https://example.com/image1a.jpg"], status: .active),
+    //           .init(id: 1, name: "Vesterbro", description: "Second installation", customer: customer1, type: individual, createdAt: Date(), mainImageURL: "https://example.com/image2.jpg", attachedImagesUrl: ["https://example.com/image2a.jpg"], status: .completed),
+    //           .init(id: 2, name: "Østerbro", description: "Third installation", customer: customer2, type: corporate, createdAt: Date(), mainImageURL: "https://example.com/image3.jpg", attachedImagesUrl: ["https://example.com/image3a.jpg"], status: .completed)
+    //       ]
+    //   }
     
     
     
@@ -51,46 +51,54 @@ struct DashboardView: View {
         // First instalations
         
         
-        VStack{
-            
-            
-       //   VStack {
-       //       Header() // header
-       //
-       //       SearchBar() // search
-       //           .padding(.top, 10)
-       //
-       //   }
-       //   .padding(.leading,50)
-       //   .padding(.trailing,50)
-       //
-       //
-       //   VStack(alignment: .leading, spacing: 30) {
-       //       Text("In progress").font(.title2).bold()
-       //
-       //   }
-       //   .padding(.top,10)
-       //
-            
-            NavigationStack(path: $selectedProjectPath){
-                List {
-                    ForEach(project) { project in
-                        NavigationLink(project.name,value: project)
-                    }
-                }.navigationDestination(for: Project.self){  project in
-                    UploadView(item:project)
-                }
-            }
-            
-            
         
+        
+        
+        
+        
+        NavigationStack(path: $selectedProjectPath){
             
             
-         //   Button{
-         //       path = NavigationPath()
-         //   }label: {
-         //       Text("Logout to root")
-         //   }
+            
+            
+            VStack {
+                Header() // header
+                
+                SearchBar() // search
+                    .padding(.top, 10)
+                
+            }
+            .padding(.leading,50)
+            .padding(.trailing,50)
+            
+            
+            VStack(alignment: .leading, spacing: 30) {
+                Text("In progress").font(.title2).bold()
+                
+            }
+            .padding(.top,10)
+            
+            
+            List {
+                ForEach(project) { project in
+                    NavigationLink(project.name,value: project)
+                }
+            }.navigationDestination(for: Project.self){  project in
+                UploadView(item:project)
+            }.background(Color.clear)
+                .listStyle(PlainListStyle())
+                .padding(.horizontal)
+            
+            
+            
+            
+            
+            
+            //   Button{
+            //       path = NavigationPath()
+            //   }label: {
+            //       Text("Logout to root")
+            //   }
             
             
             //        List {
@@ -275,10 +283,10 @@ struct DashboardView: View {
     
     struct DashboardView_Previews: PreviewProvider {
         static var previews: some View {
-     
-                DashboardView()
- 
-           
+            
+            DashboardView()
+            
+            
         }
     }
     
