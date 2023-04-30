@@ -9,6 +9,9 @@ import SwiftUI
 
 struct WelcomeScreenView: View {
     var body: some View {
+
+    
+      
         VStack {
             ZStack {
                 Image("main-image")
@@ -39,9 +42,9 @@ struct WelcomeScreenView: View {
             .foregroundColor(Color.white)
             .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
             
-            NavigationLink("Login") {
-                LoginView()
-            }
+         //  NavigationLink("Login") {
+         //      LoginView()
+         //  }
             .font(.title3)
             .padding()
             .frame(width: 330)
@@ -56,6 +59,7 @@ struct WelcomeScreenView: View {
             
         }.padding(.horizontal)
     }
+    
 }
 
 struct WelcomeScreenView_Previews: PreviewProvider {

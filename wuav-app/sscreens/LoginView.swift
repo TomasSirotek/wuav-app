@@ -14,19 +14,13 @@ struct LoginView: View {
     @State private var wrongEmail: Int = 0
     @State private var wrongPassword: Int = 0
     @State private var showingLoginScreen  = false;
+    @Binding var path: NavigationPath
     
     
     var body: some View {
         
         VStack {
-            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    ControlButton(image: Image("arrow"))
-                }.padding(.leading, 30)
-                
-                Spacer()
-            }
-            .padding(.top)
+          
             
             VStack {
                 HStack {
@@ -35,7 +29,7 @@ struct LoginView: View {
                         .bold()
                     Spacer()
                 }
-            }.frame(width: 300, height: 200)
+            }
             
     
             VStack(spacing: 20) {
@@ -55,9 +49,12 @@ struct LoginView: View {
                     .background(Color.white)
                     .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
                 
-                NavigationLink("Login") {
-                    DashboardView()
-                }
+              //   NavigationLink {)
+              //       DashboardView()
+              //   } label: {
+              //       Label("Work Folder", systemImage: "folder")
+              //   }
+                
                 .font(.title3)
                 .padding()
                 .frame(width: 300)
@@ -76,6 +73,19 @@ struct LoginView: View {
             Spacer()
             
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button{
+                    path.removeLast()
+                }label: {
+                    Image(systemName: "chevron.left.square")
+                }
+              
+            }
+        }
+      
+            
         .padding(.horizontal)
         
         
@@ -91,6 +101,9 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        NavigationStack{
+            LoginView(path: .constant(NavigationPath()))
+        }
+     
     }
 }

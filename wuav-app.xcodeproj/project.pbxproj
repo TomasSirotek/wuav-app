@@ -16,6 +16,12 @@
 		412F19C529FDA3DA00B9E622 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19C429FDA3DA00B9E622 /* DashboardView.swift */; };
 		412F19C729FDA97900B9E622 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19C629FDA97900B9E622 /* LoginView.swift */; };
 		41F2DF7429FE63190008BBA2 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7329FE63190008BBA2 /* UploadView.swift */; };
+		41F2DF7829FE7D4E0008BBA2 /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */; };
+		41F2DF7B29FE876B0008BBA2 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7A29FE876B0008BBA2 /* Route.swift */; };
+		41F2DF7E29FEA31E0008BBA2 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7D29FEA31E0008BBA2 /* Project.swift */; };
+		41F2DF8029FEA35E0008BBA2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7F29FEA35E0008BBA2 /* Customer.swift */; };
+		41F2DF8229FEA3910008BBA2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF8129FEA3910008BBA2 /* Status.swift */; };
+		41F2DF8429FEA3B20008BBA2 /* CustomerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF8329FEA3B20008BBA2 /* CustomerType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		412F19C429FDA3DA00B9E622 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		412F19C629FDA97900B9E622 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		41F2DF7329FE63190008BBA2 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
+		41F2DF7A29FE876B0008BBA2 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		41F2DF7D29FEA31E0008BBA2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		41F2DF7F29FEA35E0008BBA2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		41F2DF8129FEA3910008BBA2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		41F2DF8329FEA3B20008BBA2 /* CustomerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,9 @@
 		412F19AC29FD6C0C00B9E622 /* wuav-app */ = {
 			isa = PBXGroup;
 			children = (
+				41F2DF7C29FEA2FD0008BBA2 /* TestModel */,
+				41F2DF7929FE87570008BBA2 /* NavigationStack */,
+				41F2DF7529FE7D380008BBA2 /* DataModel */,
 				412F19C129FD8DFB00B9E622 /* sscreens */,
 				412F19AD29FD6C0C00B9E622 /* wuav_appApp.swift */,
 				412F19AF29FD6C0C00B9E622 /* ContentView.swift */,
@@ -88,6 +103,33 @@
 				41F2DF7329FE63190008BBA2 /* UploadView.swift */,
 			);
 			path = sscreens;
+			sourceTree = "<group>";
+		};
+		41F2DF7529FE7D380008BBA2 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		41F2DF7929FE87570008BBA2 /* NavigationStack */ = {
+			isa = PBXGroup;
+			children = (
+				41F2DF7A29FE876B0008BBA2 /* Route.swift */,
+			);
+			path = NavigationStack;
+			sourceTree = "<group>";
+		};
+		41F2DF7C29FEA2FD0008BBA2 /* TestModel */ = {
+			isa = PBXGroup;
+			children = (
+				41F2DF7D29FEA31E0008BBA2 /* Project.swift */,
+				41F2DF7F29FEA35E0008BBA2 /* Customer.swift */,
+				41F2DF8129FEA3910008BBA2 /* Status.swift */,
+				41F2DF8329FEA3B20008BBA2 /* CustomerType.swift */,
+			);
+			path = TestModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,13 +202,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F2DF7B29FE876B0008BBA2 /* Route.swift in Sources */,
 				412F19C729FDA97900B9E622 /* LoginView.swift in Sources */,
 				412F19B029FD6C0C00B9E622 /* ContentView.swift in Sources */,
+				41F2DF7E29FEA31E0008BBA2 /* Project.swift in Sources */,
+				41F2DF8429FEA3B20008BBA2 /* CustomerType.swift in Sources */,
 				412F19C329FD8E0C00B9E622 /* WelcomeScreenView.swift in Sources */,
+				41F2DF7829FE7D4E0008BBA2 /* Project.xcdatamodeld in Sources */,
 				412F19C529FDA3DA00B9E622 /* DashboardView.swift in Sources */,
+				41F2DF8029FEA35E0008BBA2 /* Customer.swift in Sources */,
 				41F2DF7429FE63190008BBA2 /* UploadView.swift in Sources */,
 				412F19AE29FD6C0C00B9E622 /* wuav_appApp.swift in Sources */,
 				412F19C029FD8CA800B9E622 /* CustomButton.swift in Sources */,
+				41F2DF8229FEA3910008BBA2 /* Status.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +415,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */,
+			);
+			currentVersion = 41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */;
+			path = Project.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 412F19A229FD6C0C00B9E622 /* Project object */;
 }

@@ -7,13 +7,49 @@ import SwiftUI
 // Need to fix the black and white mode
 // Do not forget to hide the navigation .navigationBarHidden(true)
 struct ContentView: View {
+    
+    @State private var path = NavigationPath();
+    
+
+    
     var body: some View {
-        NavigationStack{
-           // WelcomeScreenView()
-            DashboardView()
+        
+        
+        VStack {
+            NavigationStack(path: $path) {
+                // stack is in the welocme screen
+                
+                // THIS IS ROOT
+                //  WelcomeScreenView()
+                
+                
+                // FIRST : ROOT VIW THAT WILL SHIFT TO THE LOGIN THAT IS GOING TO BE STACK 1
+                
+                
+                
+        
+                
+                NavigationLink {
+                    LoginView(path:$path)
+                } label: {
+                    Label("Work Folder", systemImage: "folder")
+                }
+                
+                
+            }
+            
+            
+            
+           
         }
+        
+        
     }
+    
+    
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -39,7 +75,7 @@ struct ControlButton: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.gray, lineWidth: 0)
         )
-      //  .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+        //  .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
     }
 }
 
