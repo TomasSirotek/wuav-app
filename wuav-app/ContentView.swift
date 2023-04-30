@@ -14,37 +14,40 @@ struct ContentView: View {
     
     var body: some View {
         
+      //  WelcomeScreenView()
+       DashboardView()
         
-        VStack {
-            NavigationStack(path: $path) {
-                // stack is in the welocme screen
-                
-                // THIS IS ROOT
-                //  WelcomeScreenView()
-                
-                
-                // FIRST : ROOT VIW THAT WILL SHIFT TO THE LOGIN THAT IS GOING TO BE STACK 1
-                
-                
-                
+   //
+   //    VStack {
+   //        NavigationStack(path: $path) {
+   //            // stack is in the welocme screen
+   //
+   //            // THIS IS ROOT
+   //            //  WelcomeScreenView()
+   //
+   //
+   //            // FIRST : ROOT VIW THAT WILL SHIFT TO THE LOGIN THAT IS GOING TO BE STACK 1
+   //
+   //
+   //
+   //
+   //
+   //            NavigationLink {
+   //                LoginView(path:$path)
+   //            } label: {
+   //                Label("Work Folder", systemImage: "folder")
+   //            }
+   //
+   //
+   //        }
+   //
+   //
+   //
+   //
+   //    }
         
-                
-                NavigationLink {
-                    LoginView(path:$path)
-                } label: {
-                    Label("Work Folder", systemImage: "folder")
-                }
-                
-                
-            }
-            
-            
-            
-           
-        }
         
-        
-    }
+}
     
     
     

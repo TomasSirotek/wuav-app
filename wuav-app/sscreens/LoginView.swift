@@ -55,6 +55,10 @@ struct LoginView: View {
               //       Label("Work Folder", systemImage: "folder")
               //   }
                 
+                NavigationLink(destination: DashboardView()){
+                    Text("tes")
+                }
+                
                 .font(.title3)
                 .padding()
                 .frame(width: 300)

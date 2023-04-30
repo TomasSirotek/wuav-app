@@ -9,8 +9,24 @@ import SwiftUI
 
 struct UploadView: View {
     var item : Project
-    @State private var items: [String] = []
+    //@State private var items: [UIImage] = []
+    @State private var items: [ImageItem] = []
+    @State private var isPickerShown: Bool = false
+    @State private var image = UIImage()
+    @State private var isPreviewShown: Bool = false
+    @State private var previewImage: UIImage = UIImage()
+    @State private var showCompletedView: Bool = false
     
+ 
+    // HAS TO BE FIXED
+    
+    //   Button(action: {
+    //       previewImage = items[index]
+    //       isPreviewShown = true
+    //   }) {
+    //       Image(systemName: "arrow.up.left.and.arrow.down.right")
+    //           .font(.title2)
+    //   }
     
     var body: some View {
         
@@ -30,18 +46,30 @@ struct UploadView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.gray)
             } else {
+                
                 List {
-                    ForEach(items, id: \.self) { item in
+                    ForEach(items.indices, id: \.self) { index in
                         HStack {
-                            Text(item)
+                            Image(uiImage: items[index].image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 100)
+                            
+                            TextField("Image name", text: $items[index].name)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
                             Spacer()
-                            Button(action: { deleteItem(item: item) }) {
+                            
+                            Button(action: {
+                                items.remove(at: index)
+                            }) {
                                 Image(systemName: "trash")
                                     .foregroundColor(.red)
+                                    .font(.title2)
                             }
                         }
-                        .listRowBackground(Color.clear)
                     }
+                    
                 }
                 .background(Color.clear)
                 .listStyle(PlainListStyle())
@@ -62,7 +90,10 @@ struct UploadView: View {
             .padding(.bottom)
             .disabled(items.count >= 2)
             
-            Button(action: initImageUpload) {
+            Button(action: {
+                initImageUpload()
+                showCompletedView = true
+            }) {
                 Text("Finish")
                 
                     .frame(maxWidth: .infinity)
@@ -75,21 +106,27 @@ struct UploadView: View {
             .padding(.bottom)
             .disabled(items.count < 2)
         }
+        .sheet(isPresented: $isPickerShown){
+            ImagePicker(selectedImage: self.$image, onImagePicked: {
+                items.append(ImageItem(image: image, name: "Default Name"))
+            }, sourceType: .camera)
+        }
+        .sheet(isPresented: $showCompletedView) {
+            CompletedView()
+        }
+        .fullScreenCover(isPresented: $isPreviewShown) {
+            ImagePreview(image: previewImage)
+        }
         .padding()
+        
         .navigationTitle(item.name)
     }
     
     
     func addItem() {
-        let newItem = "Upload image \(items.count + 1)"
-        items.append(newItem)
+        isPickerShown = true
     }
     
-    func deleteItem(item: String) {
-        if let index = items.firstIndex(of: item) {
-            items.remove(at: index)
-        }
-    }
     
     func initImageUpload(){
         print("Uploading to proxy")
@@ -100,4 +137,43 @@ struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
         UploadView(item: Project(id: 0, name: "Example Project", description: "Example Description", customer: Customer(id: 1, name: "John Doe", email: "john@example.com", phone: "1234567890", type: CustomerType(id: 1, name: "Individual")), type: CustomerType(id: 1, name: "Individual"), createdAt: Date(), mainImageURL: "https://example.com/image1.jpg", attachedImagesUrl: ["https://example.com/image1a.jpg"], status: .active))
     }
+}
+
+struct ImagePreview: View {
+    var image: UIImage
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+            Spacer()
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Close")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+            .padding(.bottom)
+        }
+    }
+}
+
+extension Binding where Value == Bool {
+    func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
+        return Binding(
+            get: { wrappedValue },
+            set: { newValue in
+                wrappedValue = newValue
+                handler(newValue)
+            }
+        )
+    }
+    
 }

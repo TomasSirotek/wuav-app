@@ -79,9 +79,58 @@ struct DashboardView: View {
             .padding(.top,10)
             
             
+            
+            
             List {
                 ForEach(project) { project in
-                    NavigationLink(project.name,value: project)
+                  //  NavigationLink(project.name,value: project)
+                    
+                         VStack(alignment: .leading, spacing: 20) {
+                             HStack {
+                                 VStack(alignment: .leading, spacing: 2) {
+                                     Text(project.name)
+                                         .font(.title3)
+                                         .bold()
+                                     Text(project.type.name)
+                                         .font(.body)
+                                 }
+                                 Spacer()
+                                 Button(action: {
+                                     // Details button action
+                                 }) {
+                                     Text(project.status == .active ? "Active" : "Completed")
+                                         .font(.callout)
+                                         .foregroundColor(project.status == .active ? .blue : .green)
+                                 }
+                             }
+                  
+                             Divider()
+                  
+                             HStack(spacing: 10) {
+                                 Text(project.createdAt, style: .date)
+                                     .font(.callout)
+                                     .foregroundColor(.gray)
+                                 Spacer()
+                  
+                                
+                                 
+                                 NavigationLink("Upload photos",value: project).font(.system(size: 15))
+                                     .padding(20)
+                                     .frame(width: 170, height: 40)
+                                     .foregroundColor(.white)
+                                     .background(project.status == .completed ? Color("PrimaryColor").opacity(0.5) :Color("PrimaryColor"))
+                                     .cornerRadius(5)
+                                     .disabled(project.status == .completed)
+                  
+                  
+                             }
+                  
+                             .padding(.bottom, 20)
+                             .padding(.top,20)
+                  
+                    }
+                    
+                    
                 }
             }.navigationDestination(for: Project.self){  project in
                 UploadView(item:project)

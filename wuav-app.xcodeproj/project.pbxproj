@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410D82B329FEB8C400805A5C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D82B229FEB8C400805A5C /* ImagePicker.swift */; };
+		410D82B729FED17200805A5C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D82B629FED17200805A5C /* Image.swift */; };
+		410D82BB29FED37000805A5C /* CompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D82BA29FED37000805A5C /* CompletedView.swift */; };
 		412F19AE29FD6C0C00B9E622 /* wuav_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19AD29FD6C0C00B9E622 /* wuav_appApp.swift */; };
 		412F19B029FD6C0C00B9E622 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F19AF29FD6C0C00B9E622 /* ContentView.swift */; };
 		412F19B229FD6C0D00B9E622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412F19B129FD6C0D00B9E622 /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		410D82B229FEB8C400805A5C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		410D82B629FED17200805A5C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		410D82BA29FED37000805A5C /* CompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedView.swift; sourceTree = "<group>"; };
 		412F19AA29FD6C0C00B9E622 /* wuav-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wuav-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		412F19AD29FD6C0C00B9E622 /* wuav_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wuav_appApp.swift; sourceTree = "<group>"; };
 		412F19AF29FD6C0C00B9E622 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,9 +85,9 @@
 				412F19C129FD8DFB00B9E622 /* sscreens */,
 				412F19AD29FD6C0C00B9E622 /* wuav_appApp.swift */,
 				412F19AF29FD6C0C00B9E622 /* ContentView.swift */,
+				412F19BF29FD8CA800B9E622 /* CustomButton.swift */,
 				412F19B129FD6C0D00B9E622 /* Assets.xcassets */,
 				412F19B329FD6C0D00B9E622 /* Preview Content */,
-				412F19BF29FD8CA800B9E622 /* CustomButton.swift */,
 			);
 			path = "wuav-app";
 			sourceTree = "<group>";
@@ -101,6 +107,7 @@
 				412F19C429FDA3DA00B9E622 /* DashboardView.swift */,
 				412F19C629FDA97900B9E622 /* LoginView.swift */,
 				41F2DF7329FE63190008BBA2 /* UploadView.swift */,
+				410D82BA29FED37000805A5C /* CompletedView.swift */,
 			);
 			path = sscreens;
 			sourceTree = "<group>";
@@ -128,6 +135,8 @@
 				41F2DF7F29FEA35E0008BBA2 /* Customer.swift */,
 				41F2DF8129FEA3910008BBA2 /* Status.swift */,
 				41F2DF8329FEA3B20008BBA2 /* CustomerType.swift */,
+				410D82B229FEB8C400805A5C /* ImagePicker.swift */,
+				410D82B629FED17200805A5C /* Image.swift */,
 			);
 			path = TestModel;
 			sourceTree = "<group>";
@@ -207,7 +216,10 @@
 				412F19B029FD6C0C00B9E622 /* ContentView.swift in Sources */,
 				41F2DF7E29FEA31E0008BBA2 /* Project.swift in Sources */,
 				41F2DF8429FEA3B20008BBA2 /* CustomerType.swift in Sources */,
+				410D82B729FED17200805A5C /* Image.swift in Sources */,
+				410D82BB29FED37000805A5C /* CompletedView.swift in Sources */,
 				412F19C329FD8E0C00B9E622 /* WelcomeScreenView.swift in Sources */,
+				410D82B329FEB8C400805A5C /* ImagePicker.swift in Sources */,
 				41F2DF7829FE7D4E0008BBA2 /* Project.xcdatamodeld in Sources */,
 				412F19C529FDA3DA00B9E622 /* DashboardView.swift in Sources */,
 				41F2DF8029FEA35E0008BBA2 /* Customer.swift in Sources */,
@@ -346,6 +358,7 @@
 				DEVELOPMENT_TEAM = 5HFTA44LUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera ? ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -375,6 +388,7 @@
 				DEVELOPMENT_TEAM = 5HFTA44LUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera ? ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
