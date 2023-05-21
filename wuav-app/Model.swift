@@ -28,8 +28,12 @@ class Model: Hashable {
     
     init(modelName: String){
         self.modelName = modelName
-        self.uiImage = UIImage(named: modelName)!
-        
+        if let image = UIImage(named: modelName) {
+            self.uiImage = image
+        } else {
+            print("No image found for model: \(modelName)")
+            self.uiImage = UIImage() // Use a placeholder image or a default image
+        }
         let fileName = modelName + ".usdz"
         
         

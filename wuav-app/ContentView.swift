@@ -9,48 +9,70 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var path = NavigationPath();
+    @State private var buttonOffset: CGFloat = 0
     
-
     
     var body: some View {
+     
         
-      //  WelcomeScreenView()
-       DashboardView()
+        VStack {
+            NavigationStack(path: $path) {
+                VStack {
+                    ZStack {
+                        Image("main-image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.6)
+                            .clipped()
+                            .edgesIgnoringSafeArea(.top)
+                        
+                        Image("wuav-logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 8)
+                            .offset(y: UIScreen.main.bounds.height / 4.5)
+                        Spacer()
+                    }
+                    
+                    NavigationLink {
+                       ArViewPage()
+                    } label: {
+                        Label("AR Demo", systemImage: "camera.viewfinder")
+                    }
+                    .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
+                                  .offset(x: buttonOffset, y: 0)
+                    .font(.title3)
+                    .padding()
+                    .frame(width: 330)
+                    .background(Color.black)
+                    .cornerRadius(5)
+                    .padding(.horizontal)
+                    .foregroundColor(Color.white)
+                    
+                    
+                    NavigationLink {
+                        ScanView(path: $path)
+                    } label: {
+                        Label("Scan to upload", systemImage: "qrcode.viewfinder")
+                    }
+                    .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
+                                  .offset(x: buttonOffset, y: 0)
+                    .font(.title3)
+                    .padding()
+                    .frame(width: 330)
+                    .background(Color("PrimaryColor"))
+                    .cornerRadius(5)
+                    .padding(.horizontal)
+                    .foregroundColor(Color.white)
+                  
         
-   //
-   //    VStack {
-   //        NavigationStack(path: $path) {
-   //            // stack is in the welocme screen
-   //
-   //            // THIS IS ROOT
-   //            //  WelcomeScreenView()
-   //
-   //
-   //            // FIRST : ROOT VIW THAT WILL SHIFT TO THE LOGIN THAT IS GOING TO BE STACK 1
-   //
-   //
-   //
-   //
-   //
-   //            NavigationLink {
-   //                LoginView(path:$path)
-   //            } label: {
-   //                Label("Work Folder", systemImage: "folder")
-   //            }
-   //
-   //
-   //        }
-   //
-   //
-   //
-   //
-   //    }
-        
-        
-}
-    
-    
-    
+                    Spacer()
+                    Text("Continue as quest").underline()
+                    
+                }.padding(.horizontal)
+            }.navigationBarHidden(true)
+        }
+    }
 }
 
 
@@ -61,25 +83,5 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-struct ControlButton: View {
-    var image: Image
-    
-    var body: some View {
-        HStack {
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 44, height: 44)
-        }
-        .buttonStyle(PlainButtonStyle())
-        .background(Color.white)
-        .cornerRadius(8)
-        .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray, lineWidth: 0)
-        )
-        //  .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
-    }
-}
 
 

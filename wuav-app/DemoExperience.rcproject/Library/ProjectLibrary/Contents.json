@@ -1,3 +1,17 @@
 [
-
+  {
+    "libraryIdentifier" : "0710b42804393331cb015f2bd3635b0c",
+    "format" : "model",
+    "displayName" : "flat-screen-demo.usdz"
+  },
+  {
+    "libraryIdentifier" : "d7425b87b2f0f97775004d3e94afc265",
+    "format" : "model",
+    "displayName" : "speaker.usdz"
+  },
+  {
+    "libraryIdentifier" : "92913b8107c6b621636363dbc46b202d",
+    "format" : "model",
+    "displayName" : "stand.usdz"
+  }
 ]

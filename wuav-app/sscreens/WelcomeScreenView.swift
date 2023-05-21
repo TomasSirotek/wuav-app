@@ -42,9 +42,7 @@ struct WelcomeScreenView: View {
             .foregroundColor(Color.white)
             .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
             
-         //  NavigationLink("Login") {
-         //      LoginView()
-         //  }
+          //   NavigationLink("Scan", destination: ScanView())
             
            
             .font(.title3)

@@ -17,11 +17,11 @@ struct UploadView2: View {
     @State private var previewImage: UIImage = UIImage()
     @State private var showCompletedView: Bool = false
     @Binding var path: NavigationPath
-    @State private var portAcademy: String =  "http://10.176.163.232:5000"
+    @State private var portAcademy: String =  ""
     
 
     
-    @State private var portDev: String =  "http://172.20.10.2:5000"
+    @State private var portDev: String =  ""
     
     func uploadImageToEndpoint(image: UIImage) {
      
@@ -141,33 +141,50 @@ struct UploadView2: View {
             
     
             
-            Button(action: addItem) {
-                Text("Add item")
-                
-                
-            }
-            .frame(width: 350,height: 60)
-            .background(items.count >= 2 ? Color.gray : Color("PrimaryColor"))
-            .cornerRadius(5)
-            .padding(.horizontal)
-            .foregroundColor(Color.white)
-            .padding(.horizontal)
-            .padding(.bottom)
-            .disabled(items.count >= 2)
+      //      Button(action: addItem) {
+      //          Text("Add item")
+      //
+      //
+      //      }
+      //      .frame(width: 350,height: 60)
+      //      .background(items.count >= 2 ? Color.gray : //Color("PrimaryColor"))
+      //      .cornerRadius(5)
+      //      .padding(.horizontal)
+      //      .foregroundColor(Color.white)
+      //      .padding(.horizontal)
+      //      .padding(.bottom)
+      //      .disabled(items.count >= 2)
+            
+            Button(action: addItem)
+            {
+                Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .shadow(radius: 5)
+            }.frame(width: 350,height: 100)
+                .cornerRadius(5)
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .padding(.bottom)
+                .disabled(items.count >= 2)
+            
+            
         
-            Button(action: finishTask) {
-                Text("Upload")
-                
-                
-            }
-            .frame(width: 350,height: 55)
-            .background(items.count < 2 ? Color.gray : Color("PrimaryColor"))
-            .cornerRadius(5)
-            .padding(.horizontal)
-            .foregroundColor(Color.white)
-            .padding(.horizontal)
-            .padding(.bottom)
-            .disabled(items.count < 2)
+     //        Button(action: finishTask) {
+     //            Text("Upload")
+     //
+     //
+     //        }
+     //        .frame(width: 350,height: 55)
+     //        .background(items.count < 2 ? Color.gray : // Color("PrimaryColor"))
+     //        .cornerRadius(5)
+     //        .padding(.horizontal)
+     //        .foregroundColor(Color.white)
+     //        .padding(.horizontal)
+     //        .padding(.bottom)
+     //        .disabled(items.count < 2)
         
     
 
@@ -182,7 +199,7 @@ struct UploadView2: View {
             CompletedView(path:$path)
         }
         .fullScreenCover(isPresented: $isPreviewShown) {
-            ImagePreview(image: previewImage)
+          //  ImagePreview(image: previewImage)
         }
         
         
