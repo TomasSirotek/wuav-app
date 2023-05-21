@@ -1,50 +1,114 @@
 //
-//  UploadView.swift
+//  UploadView2.swift
 //  wuav-app
 //
-//  Created by Simko on 30/04/2023.
+//  Created by simko on 03/05/2023.
 //
 
 import SwiftUI
 
-struct UploadView: View {
-    var item : Project
-    //@State private var items: [UIImage] = []
+struct UploadView2: View {
+    let userId: Int
+    let projectName: String
     @State private var items: [ImageItem] = []
     @State private var isPickerShown: Bool = false
     @State private var image = UIImage()
     @State private var isPreviewShown: Bool = false
     @State private var previewImage: UIImage = UIImage()
     @State private var showCompletedView: Bool = false
+    @Binding var path: NavigationPath
+    @State private var portAcademy: String =  "http://10.176.163.232:5000"
     
- 
-    // HAS TO BE FIXED
+
     
-    //   Button(action: {
-    //       previewImage = items[index]
-    //       isPreviewShown = true
-    //   }) {
-    //       Image(systemName: "arrow.up.left.and.arrow.down.right")
-    //           .font(.title2)
-    //   }
+    @State private var portDev: String =  "http://172.20.10.2:5000"
+    
+    func uploadImageToEndpoint(image: UIImage) {
+     
+        // do all the api handeling here
+        // userId is collected from qr code
+        let boundary = UUID().uuidString
+        let requestURL = URL(string: "\(portDev)/api/users/\(userId)/images")!
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
+        let contentType = "multipart/form-data; boundary=\(boundary)"
+        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        
+        let httpBody = NSMutableData()
+        
+        // Add the image data to the request body
+        let imageData = image.jpegData(compressionQuality: 1.0)!
+        httpBody.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+        httpBody.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: String.Encoding.utf8)!)
+        httpBody.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8)!)
+        httpBody.append(imageData)
+        httpBody.append("\r\n".data(using: String.Encoding.utf8)!)
+        
+        // Add any other required parameters to the request body
+        httpBody.append("--\(boundary)--".data(using: String.Encoding.utf8)!)
+        request.httpBody = httpBody as Data
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error uploading image: \(error.localizedDescription)")
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 {
+                    print("Image uploaded successfully!")
+                } else {
+                    print("Error uploading image: HTTP status code \(response.statusCode)")
+                }
+            }
+        }
+        task.resume()
+        
+    }
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Text("Upload photos")
-                    .bold()
-                    .font(.system(size: 30))
-                    .frame(alignment: .topLeading)
+            VStack(alignment:.center) {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Project name: ")
+                            .bold()
+                            .font(.system(size: 25))
+                        Text("\(projectName)")
+                            .font(.system(size: 25))
+                    }
+                    
+                    HStack {
+                        Text("Technician id: ")
+                            .bold()
+                            .font(.system(size: 25))
+                        Text("\(userId)")
+                            .font(.system(size: 25))
+                    }
+                }
+                .padding(30)
+                .frame(width: 400, height: 100, alignment: .topLeading)
             }
-            .padding(30)
             
-            .frame(width: 300, height: 100, alignment: .topLeading)
             
             if items.isEmpty {
-                Text("No images uploaded !")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .foregroundColor(.gray)
+                ZStack {
+                    
+                           VStack {
+                               Image("no-data")
+                                   .resizable()
+                                   .aspectRatio(contentMode: .fit)
+                                   .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 3)
+
+                               Text("No images uploaded!")
+                                   .foregroundColor(.gray)
+                                   .font(.system(size: 24))
+                                   .fontWeight(.bold)
+                                   .padding()
+                           }
+                           .frame(maxWidth: .infinity, maxHeight: .infinity)
+                       }
             } else {
                 
                 List {
@@ -55,8 +119,8 @@ struct UploadView: View {
                                 .scaledToFit()
                                 .frame(height: 100)
                             
-                            TextField("Image name", text: $items[index].name)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            Text("image_upload_\(index)")
+                            
                             
                             Spacer()
                             
@@ -75,36 +139,39 @@ struct UploadView: View {
                 .listStyle(PlainListStyle())
             }
             
-            Spacer()
+    
             
             Button(action: addItem) {
                 Text("Add item")
                 
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(items.count >= 2 ? Color.gray : Color("PrimaryColor"))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                
             }
+            .frame(width: 350,height: 60)
+            .background(items.count >= 2 ? Color.gray : Color("PrimaryColor"))
+            .cornerRadius(5)
+            .padding(.horizontal)
+            .foregroundColor(Color.white)
             .padding(.horizontal)
             .padding(.bottom)
             .disabled(items.count >= 2)
-            
-            Button(action: {
-                initImageUpload()
-                showCompletedView = true
-            }) {
-                Text("Finish")
+        
+            Button(action: finishTask) {
+                Text("Upload")
                 
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(items.count < 2 ? Color.gray : Color("PrimaryColor"))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                
             }
+            .frame(width: 350,height: 55)
+            .background(items.count < 2 ? Color.gray : Color("PrimaryColor"))
+            .cornerRadius(5)
+            .padding(.horizontal)
+            .foregroundColor(Color.white)
             .padding(.horizontal)
             .padding(.bottom)
             .disabled(items.count < 2)
+        
+    
+
+            
         }
         .sheet(isPresented: $isPickerShown){
             ImagePicker(selectedImage: self.$image, onImagePicked: {
@@ -112,16 +179,20 @@ struct UploadView: View {
             }, sourceType: .camera)
         }
         .sheet(isPresented: $showCompletedView) {
-            CompletedView()
+            CompletedView(path:$path)
         }
         .fullScreenCover(isPresented: $isPreviewShown) {
             ImagePreview(image: previewImage)
         }
-        .padding()
         
-        .navigationTitle(item.name)
+        
+        
     }
     
+    func finishTask(){
+        initImageUpload()
+        showCompletedView = true
+    }
     
     func addItem() {
         isPickerShown = true
@@ -130,50 +201,18 @@ struct UploadView: View {
     
     func initImageUpload(){
         print("Uploading to proxy")
-    }
-}
-
-struct UploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadView(item: Project(id: 0, name: "Example Project", description: "Example Description", customer: Customer(id: 1, name: "John Doe", email: "john@example.com", phone: "1234567890", type: CustomerType(id: 1, name: "Individual")), type: CustomerType(id: 1, name: "Individual"), createdAt: Date(), mainImageURL: "https://example.com/image1.jpg", attachedImagesUrl: ["https://example.com/image1a.jpg"], status: .active))
-    }
-}
-
-struct ImagePreview: View {
-    var image: UIImage
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFit()
-            Spacer()
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Close")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            .padding(.bottom)
+        
+        
+        for item in items {
+            uploadImageToEndpoint(image: item.image)
         }
     }
+    
+    
 }
 
-extension Binding where Value == Bool {
-    func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
-        return Binding(
-            get: { wrappedValue },
-            set: { newValue in
-                wrappedValue = newValue
-                handler(newValue)
-            }
-        )
+struct UploadView2_Previews: PreviewProvider {
+    static var previews: some View {
+        UploadView2(userId : 3,projectName : "Initial_project",path: .constant(NavigationPath()))
     }
-    
 }
