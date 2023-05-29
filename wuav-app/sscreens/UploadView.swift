@@ -1,9 +1,7 @@
-//
 //  UploadView2.swift
 //  wuav-app
 //
 //  Created by simko on 03/05/2023.
-//
 
 import SwiftUI
 
@@ -17,18 +15,15 @@ struct UploadView2: View {
     @State private var previewImage: UIImage = UIImage()
     @State private var showCompletedView: Bool = false
     @Binding var path: NavigationPath
-    @State private var portAcademy: String =  ""
-    
+    @State private var portIP: String =  ""
+  
 
-    
-    @State private var portDev: String =  ""
-    
     func uploadImageToEndpoint(image: UIImage) {
      
         // do all the api handeling here
         // userId is collected from qr code
         let boundary = UUID().uuidString
-        let requestURL = URL(string: "\(portDev)/api/users/\(userId)/images")!
+        let requestURL = URL(string: "\(portIP)/api/users/\(userId)/images")!
         
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
@@ -67,7 +62,6 @@ struct UploadView2: View {
     }
     
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 10) {
             VStack(alignment:.center) {
                 VStack(alignment: .leading) {
@@ -91,10 +85,8 @@ struct UploadView2: View {
                 .frame(width: 400, height: 100, alignment: .topLeading)
             }
             
-            
             if items.isEmpty {
                 ZStack {
-                    
                            VStack {
                                Image("no-data")
                                    .resizable()
@@ -110,7 +102,6 @@ struct UploadView2: View {
                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                        }
             } else {
-                
                 List {
                     ForEach(items.indices, id: \.self) { index in
                         HStack {
@@ -120,7 +111,6 @@ struct UploadView2: View {
                                 .frame(height: 100)
                             
                             Text("image_upload_\(index)")
-                            
                             
                             Spacer()
                             
@@ -139,56 +129,36 @@ struct UploadView2: View {
                 .listStyle(PlainListStyle())
             }
             
-    
-            
-      //      Button(action: addItem) {
-      //          Text("Add item")
-      //
-      //
-      //      }
-      //      .frame(width: 350,height: 60)
-      //      .background(items.count >= 2 ? Color.gray : //Color("PrimaryColor"))
-      //      .cornerRadius(5)
-      //      .padding(.horizontal)
-      //      .foregroundColor(Color.white)
-      //      .padding(.horizontal)
-      //      .padding(.bottom)
-      //      .disabled(items.count >= 2)
-            
-            Button(action: addItem)
-            {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .background(Color.white)
-                    .cornerRadius(30)
-                    .shadow(radius: 5)
-            }.frame(width: 350,height: 100)
-                .cornerRadius(5)
-                .padding(.horizontal)
-                .padding(.horizontal)
-                .padding(.bottom)
-                .disabled(items.count >= 2)
-            
-            
-        
-     //        Button(action: finishTask) {
-     //            Text("Upload")
-     //
-     //
-     //        }
-     //        .frame(width: 350,height: 55)
-     //        .background(items.count < 2 ? Color.gray : // Color("PrimaryColor"))
-     //        .cornerRadius(5)
-     //        .padding(.horizontal)
-     //        .foregroundColor(Color.white)
-     //        .padding(.horizontal)
-     //        .padding(.bottom)
-     //        .disabled(items.count < 2)
-        
-    
-
-            
+            if items.count < 2 {
+                Button(action: addItem)
+                {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                        .shadow(radius: 5)
+                }.frame(width: 350,height: 100)
+                    .foregroundColor(Color("PrimaryColor"))
+                    .cornerRadius(5)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .disabled(items.count >= 2)
+                
+            } else {
+                    Button(action: finishTask) {
+                        Text("Upload")
+                    }
+                    .frame(width: 350,height: 55)
+                    .background( Color("PrimaryColor"))
+                    .cornerRadius(5)
+                    .padding(.horizontal)
+                    .foregroundColor(Color.white)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .disabled(items.count < 2)
+            }
         }
         .sheet(isPresented: $isPickerShown){
             ImagePicker(selectedImage: self.$image, onImagePicked: {
@@ -201,9 +171,6 @@ struct UploadView2: View {
         .fullScreenCover(isPresented: $isPreviewShown) {
           //  ImagePreview(image: previewImage)
         }
-        
-        
-        
     }
     
     func finishTask(){
@@ -215,11 +182,7 @@ struct UploadView2: View {
         isPickerShown = true
     }
     
-    
     func initImageUpload(){
-        print("Uploading to proxy")
-        
-        
         for item in items {
             uploadImageToEndpoint(image: item.image)
         }

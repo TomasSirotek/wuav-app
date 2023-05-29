@@ -21,7 +21,7 @@
 		4181BFC92A02ABA9009E81A9 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4181BFC82A02ABA9009E81A9 /* UploadView.swift */; };
 		4181BFCC2A02AE13009E81A9 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 4181BFCB2A02AE13009E81A9 /* CodeScanner */; };
 		41A5AEFD2A0EC51400084438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5AEFC2A0EC51400084438 /* Model.swift */; };
-		41F2DF7829FE7D4E0008BBA2 /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */; };
+		41BF28362A1A56E400E0EDB7 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 41BF28352A1A56E400E0EDB7 /* FocusEntity */; };
 		41F2DF7E29FEA31E0008BBA2 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7D29FEA31E0008BBA2 /* Project.swift */; };
 		41F2DF8029FEA35E0008BBA2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF7F29FEA35E0008BBA2 /* Customer.swift */; };
 		41F2DF8229FEA3910008BBA2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2DF8129FEA3910008BBA2 /* Status.swift */; };
@@ -42,10 +42,7 @@
 		412F19C229FD8E0C00B9E622 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
 		4181BFC62A02A91D009E81A9 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		4181BFC82A02ABA9009E81A9 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
-		41A5AEFA2A0EBC8600084438 /* stand.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = stand.usdz; sourceTree = "<group>"; };
-		41A5AEFB2A0EBC8900084438 /* speaker.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = speaker.usdz; sourceTree = "<group>"; };
 		41A5AEFC2A0EC51400084438 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		41F2DF7D29FEA31E0008BBA2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		41F2DF7F29FEA35E0008BBA2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		41F2DF8129FEA3910008BBA2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -57,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BF28362A1A56E400E0EDB7 /* FocusEntity in Frameworks */,
 				4181BFCC2A02AE13009E81A9 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,9 +81,6 @@
 		412F19AC29FD6C0C00B9E622 /* wuav-app */ = {
 			isa = PBXGroup;
 			children = (
-				41A5AEFA2A0EBC8600084438 /* stand.usdz */,
-				41A5AEFB2A0EBC8900084438 /* speaker.usdz */,
-				41A5AEFC2A0EC51400084438 /* Model.swift */,
 				41F2DF7C29FEA2FD0008BBA2 /* TestModel */,
 				41F2DF7529FE7D380008BBA2 /* DataModel */,
 				412F19C129FD8DFB00B9E622 /* sscreens */,
@@ -121,7 +116,7 @@
 		41F2DF7529FE7D380008BBA2 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */,
+				41A5AEFC2A0EC51400084438 /* Model.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -157,6 +152,7 @@
 			name = "wuav-app";
 			packageProductDependencies = (
 				4181BFCB2A02AE13009E81A9 /* CodeScanner */,
+				41BF28352A1A56E400E0EDB7 /* FocusEntity */,
 			);
 			productName = "wuav-app";
 			productReference = 412F19AA29FD6C0C00B9E622 /* wuav-app.app */;
@@ -188,6 +184,7 @@
 			mainGroup = 412F19A129FD6C0C00B9E622;
 			packageReferences = (
 				4181BFCA2A02AE13009E81A9 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				41BF28342A1A56E400E0EDB7 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = 412F19AB29FD6C0C00B9E622 /* Products */;
 			projectDirPath = "";
@@ -223,7 +220,6 @@
 				410D82BB29FED37000805A5C /* CompletedView.swift in Sources */,
 				412F19C329FD8E0C00B9E622 /* WelcomeScreenView.swift in Sources */,
 				410D82B329FEB8C400805A5C /* ImagePicker.swift in Sources */,
-				41F2DF7829FE7D4E0008BBA2 /* Project.xcdatamodeld in Sources */,
 				410D10B62A0994DF0093F734 /* ARViewPage.swift in Sources */,
 				41F2DF8029FEA35E0008BBA2 /* Customer.swift in Sources */,
 				412F19AE29FD6C0C00B9E622 /* wuav_appApp.swift in Sources */,
@@ -443,6 +439,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		41BF28342A1A56E400E0EDB7 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -451,20 +455,12 @@
 			package = 4181BFCA2A02AE13009E81A9 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
 		};
-/* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		41F2DF7629FE7D4E0008BBA2 /* Project.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */,
-			);
-			currentVersion = 41F2DF7729FE7D4E0008BBA2 /* Project.xcdatamodel */;
-			path = Project.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+		41BF28352A1A56E400E0EDB7 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41BF28342A1A56E400E0EDB7 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
 		};
-/* End XCVersionGroup section */
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 412F19A229FD6C0C00B9E622 /* Project object */;
 }

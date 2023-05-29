@@ -11,13 +11,12 @@ struct CompletedView: View {
     
     @Binding var path: NavigationPath
     
-    
     var body: some View {
         VStack(spacing: 30) {
             Image(systemName: "checkmark")
                 .resizable()
                 .frame(width: 100, height: 100)
-                .foregroundColor(.green)
+                .foregroundColor(Color("PrimaryColor"))
             
             Text("You are almost done !")
                 .font(.system(size:25)).bold()
