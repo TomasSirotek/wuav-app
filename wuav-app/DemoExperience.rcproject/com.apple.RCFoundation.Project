@@ -22,76 +22,7 @@
                         "__version" : 1
                       },
                       "actionGroups" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "force" : [
-                                            0,
-                                            3.493614673614502,
-                                            0
-                                          ],
-                                          "target" : [
-                                            "0ED221C4-F858-4113-BF8C-B57BF2BFB1CC"
-                                          ]
-                                        },
-                                        "name" : {
-                                          "type" : "physics"
-                                        }
-                                      },
-                                      "identifier" : "E3A25174-F4BC-4727-A5C6-34F3746D0BBA",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "135C1D60-5A16-41CD-87AC-688D821B8692",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        },
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "audioType" : "play",
-                                          "filePath" : "audio:com.apple.rc.audio.transportation.cruise-ship-horn\/Cruise%20Ship%20Horn.caf",
-                                          "loops" : false,
-                                          "multiplePerformType" : "allow request",
-                                          "target" : [
-                                            "0ED221C4-F858-4113-BF8C-B57BF2BFB1CC"
-                                          ],
-                                          "volume" : 0.5
-                                        },
-                                        "name" : {
-                                          "type" : "audio"
-                                        }
-                                      },
-                                      "identifier" : "C693E2DE-2C69-4C42-9212-B5969248181F",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "02466539-C3DA-44A2-A11E-E4629E8C80C9",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
+
                       ],
                       "color" : [
                         0.364705890417099,
@@ -105,23 +36,7 @@
                       "isModal" : false,
                       "name" : "Behaviour",
                       "triggers" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurationBox" : {
-                                "configuration" : {
-                                  "target" : [
-                                    "0ED221C4-F858-4113-BF8C-B57BF2BFB1CC"
-                                  ]
-                                },
-                                "name" : "tapTarget"
-                              },
-                              "identifier" : "F61D6A10-AF4D-4B7D-AA3A-5F026E43912E",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
+
                       ]
                     }
                   ],
@@ -285,21 +200,21 @@
               "title" : "speaker",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.95161300897598267,
-                  -7.4925623039234779e-08,
-                  0.30729901790618896,
+                  0.9792218804359436,
+                  -6.6210589011461707e-08,
+                  0.20279188454151154,
                   0,
-                  0.083887942135334015,
-                  0.96201843023300171,
-                  -0.25977557897567749,
+                  0.098246119916439056,
+                  0.87480926513671875,
+                  -0.47440114617347717,
                   0,
-                  -0.29562729597091675,
-                  0.27298450469970703,
-                  0.91546928882598877,
+                  -0.17740418016910553,
+                  0.48446747660636902,
+                  0.85663235187530518,
                   0,
-                  -0.098154380917549133,
-                  0.33523356914520264,
-                  0.6082533597946167,
+                  -0.050073843449354172,
+                  0.99857509136199951,
+                  1.473086953163147,
                   1
                 ],
                 "sceneTransform" : [

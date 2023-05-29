@@ -1,20 +1,14 @@
-//
 //  ContentView.swift
 //  wuav-app
 
 import SwiftUI
 
-// Need to fix the black and white mode
-// Do not forget to hide the navigation .navigationBarHidden(true)
 struct ContentView: View {
     
     @State private var path = NavigationPath();
     @State private var buttonOffset: CGFloat = 0
     
-    
     var body: some View {
-     
-        
         VStack {
             NavigationStack(path: $path) {
                 VStack {
@@ -37,10 +31,10 @@ struct ContentView: View {
                     NavigationLink {
                        ArViewPage()
                     } label: {
-                        Label("AR Demo", systemImage: "camera.viewfinder")
+                        Label("AR Demo build", systemImage: "camera.viewfinder")
                     }
                     .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
-                                  .offset(x: buttonOffset, y: 0)
+                    .offset(x: buttonOffset, y: 0)
                     .font(.title3)
                     .padding()
                     .frame(width: 330)
@@ -48,7 +42,6 @@ struct ContentView: View {
                     .cornerRadius(5)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
-                    
                     
                     NavigationLink {
                         ScanView(path: $path)

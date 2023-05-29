@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twostraws/CodeScanner",
       "state" : {
-        "revision" : "d8f10d992ef32a4187b78a6df320facf75d631d8",
-        "version" : "2.3.1"
+        "revision" : "4b2f9c57d03bfe94e6b45572e0c908c1433c32b2",
+        "version" : "2.3.2"
+      }
+    },
+    {
+      "identity" : "focusentity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/FocusEntity",
+      "state" : {
+        "revision" : "e7ca067e1f00511f479f4ae4dd4de928cbbf5215",
+        "version" : "2.4.1"
       }
     }
   ],
